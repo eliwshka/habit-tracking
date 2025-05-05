@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Habit Tracker
 
-## Getting Started
+A modern web application to help users build and maintain healthy habits. Track your progress, stay motivated, and achieve your goals with this intuitive habit tracking tool.
 
-First, run the development server:
+## Features
 
+- Create and manage multiple habits
+- Track daily progress with a visual calendar
+- Filter habits by status (active, completed, new)
+- Persistent data storage using localStorage
+- Responsive design for all devices
+- Beautiful and intuitive user interface
+
+## Tech Stack
+
+- **Next.js 14**: For server-side rendering and optimal performance
+- **TypeScript**: For type safety and better developer experience
+- **Tailwind CSS**: For rapid UI development and responsive design
+- **React**: For building interactive user interfaces
+- **Vercel**: For deployment and hosting
+
+## Why This Tech Stack?
+
+- **Next.js**: Provides excellent performance, SEO benefits, and easy deployment
+- **TypeScript**: Helps catch errors early and improves code maintainability
+- **Tailwind CSS**: Enables rapid UI development with utility-first approach
+- **React**: Industry standard for building interactive UIs
+- **Vercel**: Seamless deployment and hosting solution for Next.js applications
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yourusername/habit-tracker.git
+cd habit-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Development Process
 
-To learn more about Next.js, take a look at the following resources:
+1. **Planning**: Started with user stories and wireframes
+2. **Setup**: Created Next.js project with TypeScript and Tailwind CSS
+3. **Development**: Implemented core features incrementally
+4. **Testing**: Manual testing of all features
+5. **Deployment**: Deployed to Vercel for production
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design Decisions and Compromises
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Local Storage vs Database**: Chose localStorage for simplicity and offline support
+- **UI Framework**: Selected Tailwind CSS for rapid development and customization
+- **State Management**: Using React's built-in state management for simplicity
 
-## Deploy on Vercel
+## Known Issues
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- None at the moment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+
+- Add user authentication
+- Implement cloud sync
+- Add habit categories
+- Include statistics and analytics
+- Add reminder notifications
+
+## Contributing
+
+Feel free to submit issues and enhancement requests!
