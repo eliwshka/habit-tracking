@@ -76,4 +76,7 @@ npm run dev
 ## Contributing
 
 Feel free to submit issues and enhancement requests!
+
+## Note
+- Deploymont of project is not connecting to the GitHub but in vercel it is fine habit-tracking-ocz3fy9dt-eliwshkas-projects.vercel.app
 # habit-tracking
