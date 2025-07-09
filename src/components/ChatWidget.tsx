@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef } from 'react';
 
 // Set your n8n webhook URL here
