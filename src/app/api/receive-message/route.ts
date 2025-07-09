@@ -3,9 +3,24 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    // You can add logic here to process or store the message
-    return NextResponse.json({ status: 'ok', received: body });
+    const response = NextResponse.json({ status: 'ok', received: body });
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', '*');
+    return response;
   } catch (error) {
-    return NextResponse.json({ status: 'error', error: (error as Error).message }, { status: 400 });
+    const response = NextResponse.json({ status: 'error', error: (error as Error).message }, { status: 400 });
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', '*');
+    return response;
   }
+}
+
+export async function OPTIONS() {
+  const response = new NextResponse(null, { status: 204 });
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', '*');
+  return response;
 } 
