@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 
 // Set your n8n webhook URL here
-const N8N_WEBHOOK_URL = 'https://n8n.yourdomain.com/webhook/chat';
+const N8N_WEBHOOK_URL = 'https://eliwshka.app.n8n.cloud/webhook-test/6a464397-7f9b-40a2-9186-c2f26e980103';
 
 interface Message {
   sender: 'user' | 'ai';
@@ -36,10 +36,21 @@ const ChatWidget: React.FC = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: userMsg }),
       });
-      const data = await res.json();
+      if (!res.ok) {
+        const text = await res.text();
+        appendMessage('ai', `Error: ${res.status} ${res.statusText}\n${text}`);
+        return;
+      }
+      let data;
+      try {
+        data = await res.json();
+      } catch (jsonErr) {
+        appendMessage('ai', 'Error: Invalid JSON response from server.');
+        return;
+      }
       appendMessage('ai', data.response || 'Sorry, no reply');
-    } catch (err) {
-      appendMessage('ai', 'Error contacting AI assistant.');
+    } catch (err: any) {
+      appendMessage('ai', `Network or CORS error: ${err?.message || err}`);
     } finally {
       setLoading(false);
     }
