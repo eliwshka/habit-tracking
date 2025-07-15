@@ -44,11 +44,17 @@ const ChatWidget: React.FC = () => {
       let data;
       try {
         data = await res.json();
+        console.log('n8n response:', data); // <-- Add this
+        console.log('Type of response:', typeof data.response, data.response);
       } catch (jsonErr) {
         appendMessage('ai', 'Error: Invalid JSON response from server.');
         return;
       }
-      appendMessage('ai', data.response || 'Sorry, no reply');
+      let reply = data.response;
+      if (typeof reply === 'string' && reply.startsWith('{')) {
+        try { reply = JSON.parse(reply).text; } catch {}
+      }
+      appendMessage('ai', reply || 'Sorry, no reply');
     } catch (err: any) {
       appendMessage('ai', `Network or CORS error: ${err?.message || err}`);
     } finally {
